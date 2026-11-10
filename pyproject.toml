@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "volterra-krr"
+dynamic = ["version"]
+description = "Kernel ridge regression with the Volterra reservoir kernel (infinite-dimensional next-generation reservoir computing)"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+authors = [{ name = "Daniele Ballinari" }]
+keywords = ["kernel ridge regression", "volterra kernel", "reservoir computing", "time series", "forecasting", "scikit-learn"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["numpy>=1.21", "scipy>=1.7", "scikit-learn>=1.0"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.hatch.version]
+path = "src/volterra_krr/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/volterra_krr"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
